@@ -48,6 +48,7 @@
     <Compile Include="Parameters.cs" />
     <Compile Include="Xps2Image.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xps2JpegConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="xps2img.nuspec">

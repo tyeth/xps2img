@@ -14,7 +14,6 @@ using System.Windows.Xps.Packaging;
 namespace xps2img
 {
     // copyright: http://sourceforge.net/projects/xps2img/
-
     public class Xps2Image : IDisposable
     {
         private XpsDocument _xpsDocument;
