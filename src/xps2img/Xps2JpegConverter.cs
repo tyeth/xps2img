@@ -13,7 +13,6 @@ namespace xps2img
                 var pageSizeRatio = xpsConverter.PageSize.Width / xpsConverter.PageSize.Height;
                 Size? size;
 
-
                 if (width.HasValue || height.HasValue)
                 {
                     int newWidth = 0;
@@ -30,8 +29,12 @@ namespace xps2img
                         size = new Size(width.Value, height.Value);
                     }
                 }
+                else
+                {
+                    size = new Size?();
+                }
                 Parameters
-                    p = new xps2img.Parameters
+                    parameters = new xps2img.Parameters
                     {
                         ImageOptions = new ImageOptions(quality, TiffCompressOption.Zip),
                         Dpi = dpi.HasValue ? dpi.Value : 300,
@@ -39,16 +42,11 @@ namespace xps2img
                         RequiredSize = size
                     };
 
-
-                var images = xpsConverter.ToBitmap(new Parameters
-                {
-                    ImageType = ImageType.Png,
-                    Dpi = 300
-                });
+                var images = xpsConverter.ToBitmap(parameters);
                 return images;
             }
-//        
-//        Convert a xps document to png from disk
+
+            //        Convert a xps document to png from disk
 //
 //        using (var xpsConverter = new Xps2Image("multipage.xps"))
 //        {
